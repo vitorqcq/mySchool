@@ -6,11 +6,29 @@ import java.util.ArrayList;
 public class Disciplina {
 
     protected String id;
+    protected String nome;
     protected String nivel;
     protected String livro;
     protected ArrayList<Avaliacao> avaliacoes =  new ArrayList<Avaliacao>();
-    protected Horario horario =  new Horario();
     protected Professor professor =  new Professor();
+    protected String horarioInicio;
+    protected String horarioTermino;
+    
+    public String getHorarioInicio() {
+        return horarioInicio;
+    }
+
+    public String getHorarioTermino() {
+        return horarioTermino;
+    }
+
+    public void setHorarioInicio(String horarioInicio) {
+        this.horarioInicio = horarioInicio;
+    }
+
+    public void setHorarioTermino(String horarioTermino) {
+        this.horarioTermino = horarioTermino;
+    }
 
     public ArrayList<Avaliacao> getAvaliacoes() {
         return avaliacoes;
@@ -49,14 +67,6 @@ public class Disciplina {
         avaliacoes.remove(avaliacao);
     }
 
-    public Horario getHorario() {
-        return horario;
-    }
-
-    public void setHorario(Horario horario) {
-        this.horario = horario;
-    }
-
     public Professor getProfessor() {
         return professor;
     }
@@ -68,6 +78,16 @@ public class Disciplina {
     public void setNivel(String nivel) {
         this.nivel = nivel;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+    
+    
     
     
     

@@ -12,6 +12,7 @@ public class Funcionario {
    protected String Salario;
    protected String horaInicioServico;
    protected String horaFimServico;
+   public String cargo;
 
     public String getDocumento() {
         return documento;

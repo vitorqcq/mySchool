@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class Turma {
    protected String id;
+   protected String nome;
    protected String turno;
-   protected String nivel;
    protected SalaAula sala = new SalaAula();
    protected ArrayList<Aluno>  alunos = new ArrayList<Aluno>();
   protected  ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
@@ -23,9 +23,6 @@ public class Turma {
         return id;
     }
 
-    public String getNivel() {
-        return nivel;
-    }
 
     public SalaAula getSala() {
         return sala;
@@ -45,10 +42,6 @@ public class Turma {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public void setNivel(String nivel) {
-        this.nivel = nivel;
     }
 
     public void setTurno(String turno) {
@@ -71,6 +64,20 @@ public class Turma {
     public void removeDisciplina(Disciplina disciplina){
         disciplinas.remove(disciplina);
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setSala(SalaAula sala) {
+        this.sala = sala;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+    
+    
     
     
      

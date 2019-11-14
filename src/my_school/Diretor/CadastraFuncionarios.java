@@ -2,11 +2,13 @@
 package my_school.Diretor;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import my_school.Funcionario;
 
 public class CadastraFuncionarios extends javax.swing.JFrame{
 
     Funcionario funcionario =  new Funcionario();
+    ArrayList<Funcionario> funcionarioEscola = new ArrayList<Funcionario>();
     
     public CadastraFuncionarios() {
         initComponents();
@@ -35,6 +37,9 @@ public class CadastraFuncionarios extends javax.swing.JFrame{
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -89,8 +94,8 @@ public class CadastraFuncionarios extends javax.swing.JFrame{
         });
         jPanel1.add(jSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 150, -1));
 
-        jLabel5.setText("Salário");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
+        jLabel5.setText("Cargo");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, -1, -1));
 
         jToggleButton1.setText("Cadastrar");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -126,24 +131,41 @@ public class CadastraFuncionarios extends javax.swing.JFrame{
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Cadastrar Funcionário");
 
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\vitor\\Documents\\NetBeansProjects\\My_School\\src\\imagens\\close.png")); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(152, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(155, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addGap(129, 129, 129))
+                .addGap(79, 79, 79)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(jLabel6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addContainerGap())
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 460, 60));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diretor", "Professor", "Bibliotecária", "Gerente de Estoque" }));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 170, -1));
+
+        jLabel9.setText("Salário");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 530));
 
@@ -177,6 +199,11 @@ public class CadastraFuncionarios extends javax.swing.JFrame{
         funcionario.setHoraInicioServico(jHoraIni.getText());
         funcionario.setHoraFimServico(jHoraFim.getText());
         funcionario.setSalario(jSalario.getText());
+        funcionario.cargo = jComboBox1.getSelectedItem().toString();
+        funcionario.setEndereco(jEndereco.getText());
+        
+        funcionario.setId("f" + String.valueOf(funcionarioEscola.size() + 1));
+        funcionarioEscola.add(funcionario);
 
         jNome.setText("");
         jDocumento.setText("");
@@ -195,6 +222,10 @@ public class CadastraFuncionarios extends javax.swing.JFrame{
     private void jHoraFimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHoraFimActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jHoraFimActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,6 +263,8 @@ public class CadastraFuncionarios extends javax.swing.JFrame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JTextField jDataNascimento;
     private javax.swing.JTextField jDocumento;
     private javax.swing.JTextField jEndereco;
@@ -245,6 +278,7 @@ public class CadastraFuncionarios extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jNome;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

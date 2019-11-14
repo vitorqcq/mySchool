@@ -5,35 +5,37 @@ import my_school.Diretor.Diretor;
 import java.util.ArrayList;
 
 public class Escola {
-    
-   // Funcionários
-   private Diretor diretor = new Diretor();
-   private ArrayList<Professor> professores =  new ArrayList<Professor>();
-   private ArrayList<Bibliotecaria> bibliotecarias =  new ArrayList<Bibliotecaria>();
-   private ArrayList<GerenteEstoque> gerentesEstoque =  new ArrayList<GerenteEstoque>();
-   private ArrayList<Funcionario> funcionarios =  new ArrayList<Funcionario>();
-    
-   // Alunos
-   private ArrayList<Aluno> alunos =  new ArrayList<Aluno>();
-    
-   // Estruturas
+    // Estruturas
    private ArrayList<SalaAula> salasAula =  new ArrayList<SalaAula>();
    private ArrayList<Turma> turmas =  new ArrayList<Turma>();
+   private ArrayList<Disciplina> disciplinas =  new ArrayList<Disciplina>();
    private Estoque estoque = new Estoque();
    private Biblioteca biblioteca =  new Biblioteca();
-
+   
+   // Alunos
+   private ArrayList<Aluno> alunos =  new ArrayList<Aluno>();
+   
+   
+   // Funcionários
+   private ArrayList<Professor> professores =  new ArrayList<Professor>();
+   private Bibliotecaria bibliotecaria =  new Bibliotecaria(this.biblioteca);
+   private GerenteEstoque gerentesEstoque =  new GerenteEstoque(this.estoque);
+  
+   
+   // Diretor
+   private Diretor diretor = new Diretor(this, this.getEstoque(), this.getSalasAula(), this.getDisciplinas(), this.getAlunos());
+   
+   private ArrayList<Funcionario> funcionarios =  new ArrayList<Funcionario>();
    
    // GETS
-   public ArrayList<Aluno> getAluno() {
-        return alunos;
-    }
+
 
     public Biblioteca getBiblioteca() {
         return biblioteca;
     }
 
-    public ArrayList<Bibliotecaria> getBibliotecarias() {
-        return bibliotecarias;
+    public Bibliotecaria getBibliotecaria() {
+        return bibliotecaria;
     }
 
     public Diretor getDiretor() {
@@ -48,7 +50,7 @@ public class Escola {
         return funcionarios;
     }
 
-    public ArrayList<GerenteEstoque> getGerentesEstoque() {
+    public GerenteEstoque getGerentesEstoque() {
         return gerentesEstoque;
     }
 
@@ -69,8 +71,8 @@ public class Escola {
         this.biblioteca = biblioteca;
     }
 
-    public void setBibliotecarias(ArrayList<Bibliotecaria> bibliotecarias) {
-        this.bibliotecarias = bibliotecarias;
+    public void setBibliotecarias(Bibliotecaria bibliotecarias) {
+        this.bibliotecaria = bibliotecarias;
     }
 
     public void setDiretor(Diretor diretor) {
@@ -85,7 +87,7 @@ public class Escola {
         this.funcionarios = funcionarios;
     }
 
-    public void setGerentesEstoque(ArrayList<GerenteEstoque> gerentesEstoque) {
+    public void setGerentesEstoque(GerenteEstoque gerentesEstoque) {
         this.gerentesEstoque = gerentesEstoque;
     }
 
@@ -106,9 +108,6 @@ public class Escola {
         this.alunos.add(aluno);
     }
 
-    public void addBibliotecaria(Bibliotecaria bibliotecaria) {
-        this.bibliotecarias.add(bibliotecaria);
-    }
 
     public void addFuncionarios(Funcionario funcionario) {
         this.funcionarios.add(funcionario);
@@ -131,9 +130,6 @@ public class Escola {
         this.alunos.remove(aluno);
     }
 
-    public void removeBibliotecaria(Bibliotecaria bibliotecaria) {
-        this.bibliotecarias.remove(bibliotecaria);
-    }
 
     public void removeFuncionarios(Funcionario funcionario) {
         this.funcionarios.remove(funcionario);
@@ -150,4 +146,34 @@ public class Escola {
     public void removeTurmas(Turma turma) {
         this.turmas.remove(turma);
     }
+
+    public ArrayList<Turma> getTurmas() {
+        return turmas;
+    }
+
+    public ArrayList<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(ArrayList<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
+    public ArrayList<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(ArrayList<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
+    }
+    
+    public void addDisciplina(Disciplina disciplina){
+       disciplinas.add(disciplina);
+    }
+    
+    public void removeDisciplina(Disciplina disciplina){
+        disciplinas.remove(disciplina);
+    }
+    
+    
 }
