@@ -87,9 +87,10 @@ public class Instancia {
         escola.getEstoque().addProduto(produto9);
         escola.getEstoque().addProduto(produto10);
 
-        escola.getGerentesEstoque().setId("GE1");
+        escola.getGerentesEstoque().setId("ge1");
         escola.getGerentesEstoque().setNome("Sebastião da Silva");
         escola.getGerentesEstoque().setSalario("1600");
+
 
         escola.addFuncionarios(escola.getGerentesEstoque());
     }
@@ -153,6 +154,7 @@ public class Instancia {
         professor5.setSalario("1900");
         professor6.setSalario("2000");
         professor7.setSalario("1800");
+
 
         //Outras informações não instanciadas por não serem necessárias à Instancia
         escola.addProfessores(professor1);
@@ -496,8 +498,5 @@ public class Instancia {
         escola.getBibliotecaria().setSalario("1300");
         escola.addFuncionarios(escola.getBibliotecaria());
 
-        System.out.println("montou");
-        escola.getDiretor().abreTelaDiretor();
-
-    }
+        System.out.println("montou");}
 }

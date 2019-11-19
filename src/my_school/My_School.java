@@ -11,10 +11,9 @@ public class My_School {
     public static void main(String[] args) {
         Instancia inst =  new Instancia();
         inst.montaTudo();
-        inst.escola.getDiretor().abreTelaDiretor();
-        
-        
-        
+        Login login = new Login();
+        login.escola = inst.escola;
+        login.setVisible(true);
     }
     
     

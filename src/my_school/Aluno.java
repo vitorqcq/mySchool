@@ -11,6 +11,7 @@ public class Aluno {
    private String contatoResponsavel;
    private Turma turma;
    private String estado;
+   protected String password = "1234";
 
     public String getContatoResponsavel() {
         return contatoResponsavel;
@@ -83,7 +84,18 @@ public class Aluno {
     public void setTurma(Turma turma) {
         this.turma = turma;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
    
+    public void abreTela(){
+        System.out.println("Veio pra ca");
+    }
     
    
 }

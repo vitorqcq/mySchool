@@ -124,7 +124,8 @@ public class Diretor extends Funcionario {
         visualizarAlunos.setVisible(true);
     }
 
-    public void abreTelaDiretor() {
+   @Override
+    public void abreTela() {
         TelaDiretor telaDiretor = new TelaDiretor();
         telaDiretor.escola = escolaDirigida;
         telaDiretor.setVisible(true);

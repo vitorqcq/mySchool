@@ -13,6 +13,7 @@ public class Funcionario {
    protected String horaInicioServico;
    protected String horaFimServico;
    public String cargo;
+   protected String password = "1234";
 
     public String getDocumento() {
         return documento;
@@ -77,6 +78,19 @@ public class Funcionario {
     public void setSalario(String Salario) {
         this.Salario = Salario;
     }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+    
+    public void abreTela(){
+        System.out.println("Veio pra ca");
+    }
    
+    
    
 }
